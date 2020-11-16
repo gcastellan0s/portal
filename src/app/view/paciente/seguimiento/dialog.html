@@ -1,0 +1,21 @@
+<form>
+  <div class="form-group col-sm-12">
+    <div *ngIf="data.indMezcla">
+      <h3 mar-mat-dialog-title> Motivo de cancelación </h3>
+      <select [(ngModel)]="data.cveMotivoCancelacion" name="genero">
+        <option disabled >Selecciona un motivo</option>
+        <option value="1" >Tratamiento Cancelado</option>
+        <option value="2">Paciente (no asistencia a cita)</option>
+        <option value="3">Falta de Medicamento</option>
+        <option value="4">Incumplimiento del Prestador del Servicio</option>
+      </select>
+    </div>
+    <h3 mar-mat-dialog-title> Observaciones </h3>
+    <textarea matInput [(ngModel)]="data.observacion" class="form-control" rows="10" cols="65"
+      name="complementoDiagnostico"></textarea>
+    <div><br>
+      <button style="float: right;" class="btn btn-primary" type="submit" [mat-dialog-close]="dialogo"
+        (click)="envia(dialogo)">Guardar</button>
+    </div>
+  </div>
+</form>

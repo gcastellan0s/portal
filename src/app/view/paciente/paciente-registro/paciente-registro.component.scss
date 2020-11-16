@@ -1,0 +1,20 @@
+@import '../../../variables.scss';
+
+.form{
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    background-color: $gris_claro;
+    padding: 7px;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    .btn-default{
+        margin-right: 20px;
+    }
+}

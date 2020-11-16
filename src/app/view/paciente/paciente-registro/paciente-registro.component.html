@@ -1,0 +1,149 @@
+<div class="row">
+    <h4 class="col-sm-12">Registro de pacientes</h4>
+</div>
+<hr class="red" />
+<!-- registrar paciente -->
+<form class="form">
+    <div class="col-sm-5 pl-0">
+        <div class="form-group">
+            <label class="control-label" for="email-01">Número de Seguro Social:</label>
+            <input class="form-control" id="email-01" placeholder="Número de Seguro Social" type="text" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="nssFlag" name="nss" maxlength="10" />
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="getDerechohabientesByNss(nssFlag)">Buscar paciente</button>
+</form>
+
+<!-- nucleo familiar -->
+
+<ng-container *ngIf="activeTableNucleFamiliar">
+    <h4 class="title">Núcleo familiar</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nombre (s)</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Fecha de nacimiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ngFor del objeto de nucleo -->
+            <tr *ngFor="let item of aseguradoAcceder">
+                <th scope="row">
+                    <input type="radio" name="radio-01" value="opcion-01" (click)="fillDatosPaciente(item)" />
+                </th>
+                <th>{{item.nombre}}</th>
+                <th>{{item.apPaterno}}</th>
+                <th>{{item.apMaterno}}</th>
+                <th>{{item.fechaNacimiento}}</th>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
+
+<h4 class="title">Datos del paciente</h4>
+<!-- segundo formulario -->
+<form role="form">
+    <!-- primera fila -->
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="nss">Número de seguro social:</label>
+            <input [ngModel]="objAseguradoAcceder.nss" class="form-control" id="nss" type="text" disabled name="nss" />
+        </div>
+        <!-- <mat-form-field class="col-sm-4" appearance="outline">
+          <mat-label>Número de seguro social:</mat-label>
+          <input matInput [ngModel]="objAseguradoAcceder.nss" type="text" disabled name="nss" />
+      </mat-form-field> -->
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="agregado-medico">Agregado médico:</label>
+            <input [ngModel]="objAseguradoAcceder.agregadoMedico" class="form-control" id="agregado-medico" type="text" name="agregadoMedico" disabled />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="curp">CURP:</label>
+            <input [ngModel]="objAseguradoAcceder.curp" class="form-control" id="curp" type="text" name="curp" disabled />
+        </div>
+    </div>
+    <!-- segunda fila -->
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="nombres">Nombre (s):</label>
+            <input [ngModel]="objAseguradoAcceder.nombre" class="form-control" id="nombres" type="text" name="nombre" disabled />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="primer-apellido">Primer Apellido:</label>
+            <input [ngModel]="objAseguradoAcceder.apPaterno" class="form-control" id="primer-apellido" type="text" name="apPaterno" disabled />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="segundo-apellido">Segundo Apellido:</label>
+            <input [ngModel]="objAseguradoAcceder.apMaterno" class="form-control" id="segundo-apellido" type="text" name="apMaterno" disabled />
+        </div>
+    </div>
+    <!-- tercera fila -->
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="fechanacimiento">Fecha de nacimiento:</label>
+            <input [ngModel]="objAseguradoAcceder.fechaNacimiento" class="form-control" id="fechanacimiento" type="text" name="fechaNacimiento" disabled />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="edad">Edad:</label>
+            <input [ngModel]="objAseguradoAcceder.edad" class="form-control" id="edad" type="text" name="edad" disabled />
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="vigencia">Vigencia:</label>
+            <input [ngModel]="objAseguradoAcceder.vigente" class="form-control" id="vigencia" type="text" name="vigente" disabled />
+        </div>
+    </div>
+    <!-- cuarta fila -->
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="delegacionadscrip"> Delegación de adscripción:</label>
+            <input [ngModel]="objAseguradoAcceder.descDelegacionAdscripcion" class="form-control" id="delegacionadscrip" type="text" name="descDelegacionAdscripcion" disabled />
+        </div>
+        <!-- autocomplete delegacion -->
+        <!-- <mat-form-field class="col-sm-4" appearance="outline">
+      <mat-label>Delegación de adscripción</mat-label>
+      <input type="text" matInput [formControl]="descDelegacionAdscripcion" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> -->
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="unidadadscrip">Unidad de adscripción:</label>
+            <input [ngModel]="objAseguradoAcceder.descUnidadMedicaAdscripcion" class="form-control" id="unidadadscrip" type="text" name="descUnidadMedicaAdscripcion" disabled />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label" for="unidadAtencion">Unidad de atención:</label>
+            <input [ngModel]="objNotasMedicas.descUnidadMedicaAtencion" class="form-control" id="unidadAtencion" type="text" name="unidadAtencion" disabled />
+        </div>
+    </div>
+</form>
+<h4 class="title">Diagnóstico</h4>
+<!-- segundo formulario -->
+<form role="form">
+    <!-- primera fila -->
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="control-label" for="noss">Diagnóstico CIE 10:</label>
+            <input [ngModel]="objNotasMedicas.descDiagnostico" class="form-control" id="noss" type="text" name="cveCie10" disabled />
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="control-label" for="cveCie9">Procedimiento CIE 9:</label>
+            <input [ngModel]="objNotasMedicas.descProcedimiento" class="form-control" id="cveCie9" type="text" name="cveCie9" disabled />
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="control-label" for="text-01">Información adicional al diagnóstico:</label>
+            <textarea [ngModel]="objNotasMedicas.complementoDiagnostico" disabled class="form-control" rows="5" id="text-01" name="complementoDiagnostico"></textarea>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<div class="btn-container">
+    <button class="btn btn-default" type="button" (click)="limpiaPantalla()">Limpiar</button>
+    <button [disabled]="!activeTableNucleFamiliar" class="btn btn-primary" type="button" (click)="registratPaciente()">Siguiente</button>
+</div>

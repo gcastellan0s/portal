@@ -1,0 +1,280 @@
+@import '../../../variables.scss';
+.h4 {
+  font-size: 24px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    border-style: solid;
+
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 15px;
+
+    background-color: $oro_claro;
+    border-top-color: $oro_claro_borde;
+    border-right-color: $oro_claro_borde;
+    border-bottom-color: $oro_claro_borde;
+    border-left-color: $oro_oscuro;
+
+
+    padding: 7px;
+    text-align: center;
+    line-height: 1;
+    height: auto;
+}
+
+.carnet-header{
+    border-style: solid;
+    border-width: 1px;
+    border-color: $gris_oscuro;
+}
+
+.tableBorder{
+    border-style: solid;
+    border-width: 1px;
+    border-color: $gris;
+}
+
+.topBorder{
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: $gris;
+}
+
+.leftBorder{
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: $gris;
+}
+
+.rightBorder{
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: $gris;
+}
+
+.downBorder{
+    height:auto;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: $gris;
+}
+.subTitle{
+    text-align: center;
+    background-color: $gris_medio;
+
+}
+.subRow{
+    background-color: $gris_medio;
+    text-align: left;
+}
+
+
+
+.info{
+    background-color: $gris;
+}
+
+.btn{
+    margin-left: 20px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.h4{
+    line-height: 0;
+
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .btn-default {
+        margin-right: 20px;
+    }
+}
+
+.pdf {
+    color: $rojo;
+    text-decoration: none;
+    text-align: end;
+}
+
+.text-center {
+    text-align: center;
+
+}
+
+.centerVert{
+    display: flex;
+   align-items: center;
+}
+
+.carnet-header {
+    border: 1px solid $gris;
+    background-color: $gris_claro;
+    font-weight: bold;
+    margin-top: 20px;
+    .carnet-title {
+        background-color: $gris;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+
+.rowSesion{
+    background-color: $oro;
+    margin-top:0;
+}
+
+
+
+
+.p-0 {
+    padding: 0!important;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+.m-0 {
+    margin: 0!important;
+}
+
+.bg-info{
+    background-color: $gris_claro;
+}
+
+.bordet-b {
+    border-bottom: 1px solid $gris;
+}
+
+
+
+.head-carnet{
+    width: 99%;
+}
+
+
+.carnet-title{
+    width: 95%;
+    margin: auto;
+    background-color: $oro_claro;
+    border: 1px solid $oro_borde;
+    border-left: 15px solid $oro_oscuro;
+    padding: 5px 0;
+}
+
+h1.text-center{
+    letter-spacing: 10px;
+}
+
+
+
+.header{
+    width: 95%;
+    margin: 20px auto;
+    background-color: $gris_claro;
+    border: 1px solid $gris;
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+.panel-title{
+    width: 100%;
+    display: flex;
+    font-weight: 'Montserrat'!important;
+    p{
+        font-family: 'Montserrat';
+        margin: 0;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt-rojo{
+    color: $rojo;
+}
+
+.small{
+    font-size: 15px!important;
+    text-align: center;
+    font-weight: 700;
+    padding:5px 0 5px 0;
+    span{
+        font-size: 15px;
+        color: black;
+        font-weight: 900;
+        padding: 5px 0 5px 0;
+
+    }
+}
+
+.bg-gris{
+    background-color: $gris_claro;
+}
+
+.carnet-text{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.date-btn{
+    border: 1px solid $rojo;
+    color: $rojo;
+    padding: 10px 25px!important;
+}
+
+
+.col-xs-12{
+    background-color: $gris;
+
+}
+
+.marginIntern{
+    width: 1px;
+    height: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $gris;
+}
+
+
+
+@media only screen and (max-width: 991px) {
+    .panel-title{
+        display: inline !important;
+        font-weight: 'Montserrat'!important;
+        p{
+            font-family: 'Montserrat';
+            margin: 0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+    .form {
+        display: inline !important;
+        align-items: left;
+    }
+    .info{
+        background-color: $gris;
+    }
+  }
+
+
