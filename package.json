@@ -6,7 +6,7 @@
   "author": "@gcastellan0s",
   "private": true,
   "scripts": {
-    "serve": "quasar dev",
+    "serve": "npm i && quasar dev",
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
